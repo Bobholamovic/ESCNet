@@ -49,7 +49,7 @@ if __name__ == '__main__':
     f1 = torch.from_numpy(f1).permute(2,0,1).unsqueeze(0).float().to(DEVICE)
     f2 = torch.from_numpy(f2).permute(2,0,1).unsqueeze(0).float().to(DEVICE)
 
-    # Build model an load pretrained weights
+    # Build model and load pretrained weights
     model = ESCNet(
         FeatureConverter(ETA_POS, GAMMA_CLR, OFFSETS), 
         NUM_ITERS, 
@@ -58,7 +58,7 @@ if __name__ == '__main__':
     )
     model.load_state_dict(torch.load("checkpoint.pth"))
 
-    # Model inference
+    # Infer change map
     model.to(DEVICE)
     model.eval()
     with torch.no_grad():
