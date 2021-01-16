@@ -19,7 +19,7 @@ def rgb_to_xylab(rgb):
     return insert_xy(lab)
 
 
-def init_grids(n_spixels_expc, w, h):
+def init_grid(n_spixels_expc, w, h):
     # n_spixels >= n_spixels_expc
     nw_spixels = math.ceil(math.sqrt(w*n_spixels_expc/h))
     nh_spixels = math.ceil(math.sqrt(h*n_spixels_expc/w))

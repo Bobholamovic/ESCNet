@@ -6,7 +6,7 @@ import torch.nn.functional as F
 
 from blocks import Conv3x3, MaxPool2x2, DoubleConv
 from lib import (CalcAssoc, CalcPixelFeats, CalcSpixelFeats, InitSpixelFeats, RelToAbsIndex, Smear)
-from utils import init_grids
+from utils import init_grid
 
 
 class FeatureExtactor(nn.Module):
@@ -101,8 +101,8 @@ class SSN(nn.Module):
         
         b, _, h, w = x.size()   # Get size of the input
 
-        # Initialize grids
-        init_idx_map, n_spixels, nw_spixels, nh_spixels = init_grids(self.n_spixels, w, h)
+        # Initialize grid
+        init_idx_map, n_spixels, nw_spixels, nh_spixels = init_grid(self.n_spixels, w, h)
         init_idx_map = torch.IntTensor(init_idx_map).expand(b, 1, h, w).to(x.device)
 
         # Contruct operation modules
