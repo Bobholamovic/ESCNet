@@ -11,7 +11,7 @@ from utils import FeatureConverter, rgb_to_xylab
 
 
 # Constants
-DEVICE = 'cuda'
+DEVICE = 'cpu'
 
 ETA_POS = 2
 GAMMA_CLR = 0.1
@@ -56,7 +56,7 @@ if __name__ == '__main__':
         NUM_SPIXELS, 
         NUM_FILTERS, NUM_FEATS_IN, NUM_FEATS_OUT
     )
-    model.load_state_dict(torch.load("checkpoint.pth"))
+    model.load_state_dict(torch.load("checkpoint.pth", map_location=DEVICE))
 
     # Infer change map
     model.to(DEVICE)
