@@ -1,5 +1,5 @@
 # ESCNet
-This is an official implementation of "ESCNet: End-to-End Superpixel-Enhanced Change Detection Network for Very-High-Resolution Remote Sensing Images".
+This is an official implementation of "ESCNet: An End-to-End Superpixel-Enhanced Change Detection Network for Very High Resolution Remote Sensing Images".
 
 ## Dependencies
 
